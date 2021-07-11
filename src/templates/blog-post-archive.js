@@ -4,7 +4,10 @@ import parse from "html-react-parser"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
+import Footer from "../components/footer"
 import Seo from "../components/seo"
+import Header from "../components/header"
+
 
 const BlogIndex = ({
   data,
@@ -15,8 +18,8 @@ const BlogIndex = ({
   if (!posts.length) {
     return (
       <Layout isHomePage>
+        <Header />
         <Seo title="All posts" />
-        <Bio />
         <p>
           No blog posts found. Add posts to your WordPress site and they'll
           appear here!
@@ -28,9 +31,6 @@ const BlogIndex = ({
   return (
     <Layout isHomePage>
       <Seo title="All posts" />
-
-      <Bio />
-
       <ol style={{ listStyle: `none` }}>
         {posts.map(post => {
           const title = post.title
@@ -80,7 +80,7 @@ export const pageQuery = graphql`
       nodes {
         excerpt
         uri
-        date(formatString: "MMMM DD, YYYY")
+        date(formatString: "YYYY/MM/DD")
         title
         excerpt
       }
