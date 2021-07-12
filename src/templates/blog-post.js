@@ -14,6 +14,8 @@ import "../css/@wordpress/block-library/build-style/theme.css"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import Footer from "../components/footer"
+import Header from "../components/header"
 
 const BlogPostTemplate = ({ data: { previous, next, post } }) => {
   const featuredImage = {
@@ -48,12 +50,7 @@ const BlogPostTemplate = ({ data: { previous, next, post } }) => {
         {!!post.content && (
           <section itemProp="articleBody">{parse(post.content)}</section>
         )}
-
         <hr />
-
-        <footer>
-          <Bio />
-        </footer>
       </article>
 
       <nav className="blog-post-nav">
@@ -102,8 +99,8 @@ export const pageQuery = graphql`
       excerpt
       content
       title
-      date(formatString: "MMMM DD, YYYY")
-        
+      date(formatString: "YYYY/MM/DD")
+
       featuredImage {
         node {
           altText

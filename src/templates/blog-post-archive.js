@@ -68,6 +68,7 @@ const transparent = css`
   }
 `;
 
+
 const BlogIndex = ({
   data,
   pageContext: { nextPagePath, previousPagePath },
@@ -77,7 +78,6 @@ const BlogIndex = ({
   if (!posts.length) {
     return (
       <Layout isHomePage>
-        <Header />
         <Seo title="All posts" />
         <p>
           No blog posts found. Add posts to your WordPress site and they'll
