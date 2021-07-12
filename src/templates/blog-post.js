@@ -103,7 +103,7 @@ export const pageQuery = graphql`
       content
       title
       date(formatString: "MMMM DD, YYYY")
-
+        
       featuredImage {
         node {
           altText
