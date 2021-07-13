@@ -288,7 +288,7 @@ a {
 
 .post-list-item {
   margin-bottom: var(--spacing-8);
-  /*margin-top: var(--spacing-8);*/
+  position: relative;
 }
 
 .post-list-item p {
