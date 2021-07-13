@@ -243,12 +243,19 @@ a {
   text-decoration: none;
 }
 
-a:hover,
-a:focus {
-  color: inherit;
-  animation: textAnime .2s infinite;
-  text-decoration: none;
+@media (hover: hover) {
+  a:hover {
+    color: inherit;
+    animation: textAnime .2s infinite;
+  }
 }
+@media (hover: none) {
+  a:focus {
+    color: inherit;
+    animation: textAnime .2s infinite;
+  }
+}
+
 
 /* Custom classes */
 .global-wrapper {

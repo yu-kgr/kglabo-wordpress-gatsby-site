@@ -3,12 +3,8 @@ import { css } from '@emotion/react'
 import { Link, graphql } from "gatsby"
 import Image from "gatsby-image"
 import parse from "html-react-parser"
-
-import Bio from "../components/bio"
 import Layout from "../components/layout"
-import Footer from "../components/footer"
 import Seo from "../components/seo"
-import Header from "../components/header"
 
 const getKeyword = () => {
   const results = ['廃課金者', '運営', '天才', 'デザイナー']
@@ -26,6 +22,9 @@ const transparent = css`
   min-height: 400px;
   position: relative;
   margin-bottom: var(--spacing-4);
+  @media (max-width: 42rem) {
+    min-height: 250px;
+  }
 
   &::before {
     content: '';
@@ -68,6 +67,43 @@ const transparent = css`
   }
 `;
 
+const linkStyle = css`
+  &:hover {
+    .post-list-category {
+      background: -webkit-linear-gradient( 60deg,#12d6df, #f70fff,#faea3d, #fd644f);
+      background-size:400%;
+      animation: bgAnime .2s infinite, unyonunyon 1s infinite;
+
+      @keyframes unyonunyon {
+        0%, 100%{transform:translate(0, 0%)}
+        50%{transform:translate(0, 100%)}
+      }
+    }
+  }
+`;
+
+const categoryLabel = css`
+  position: absolute;
+  left: -10px;
+  top: 20px;
+  z-index: 10;
+  padding: 6px 15px;
+  font-size: var(--fontSize-2);
+  color: #fff;
+  min-width: 80px;
+  text-align: center;
+  background: var(--color-primary);
+  font-weight: 600;
+  &:before {
+    position: absolute;
+    content: '';
+    top: 100%;
+    left: 0;
+    border: none;
+    border-bottom: solid 10px transparent;
+    border-right: solid 10px var(--color-primary);
+  }
+`;
 
 const BlogIndex = ({
   data,
@@ -78,6 +114,7 @@ const BlogIndex = ({
   if (!posts.length) {
     return (
       <Layout isHomePage>
+        <Header />
         <Seo title="All posts" />
         <p>
           No blog posts found. Add posts to your WordPress site and they'll
@@ -89,13 +126,16 @@ const BlogIndex = ({
 
   return (
     <Layout isHomePage>
-      <Seo title="All posts" />
+      <Seo title="All Posts" />
       <ol style={{ listStyle: `none` }}>
         {posts.map(post => {
           const title = post.title
           const featuredImage = {
             fluid: post.featuredImage?.node?.localFile?.childImageSharp?.fluid,
             alt: post.featuredImage?.node?.alt || ``,
+          }
+          const category = {
+            name: post.categories?.nodes[0].name
           }
 
           return (
@@ -105,12 +145,13 @@ const BlogIndex = ({
                 itemScope
                 itemType="http://schema.org/Article"
               >
-                <Link to={post.uri} itemProp="url">
+                <Link to={post.uri} itemProp="url" css={linkStyle}>
+                  <div className="post-list-category" css={categoryLabel}>{category.name}</div>
                   {!featuredImage?.fluid && (
                     <div css={transparent}>
                       <p>
                         {getKeyword()}のみ見える<br/>
-                        "{parse(title.substr( 0, 10 ))}(略)"用の<br/>
+                        "{parse(title.substr( 0, 5 ))}..."の<br/>
                         サムネイル画像です
                       </p>
                     </div>
@@ -159,6 +200,11 @@ export const pageQuery = graphql`
         uri
         date(formatString: "YYYY/MM/DD")
         title
+        categories {
+            nodes {
+                name
+            }
+        }
           
         featuredImage {
           node {
