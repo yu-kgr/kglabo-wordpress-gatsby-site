@@ -341,6 +341,10 @@ a {
   margin: var(--spacing-0);
 }
 
+.blog-post a {
+  text-decoration: underline;
+}
+
 .gatsby-highlight {
   margin-bottom: var(--spacing-8);
 }
