@@ -5,6 +5,7 @@ import Image from "gatsby-image"
 import parse from "html-react-parser"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import Header from "../components/header"
 
 const getKeyword = () => {
   const results = ['廃課金者', '運営', '天才', 'デザイナー']
