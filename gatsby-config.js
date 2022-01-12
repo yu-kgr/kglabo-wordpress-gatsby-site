@@ -95,5 +95,14 @@ module.exports = {
         cssPropOptimization: true,
       },
     },
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: ["G-ZQQH4WWXKQ"],
+        pluginConfig: {
+          head: false,
+        },
+      },
+    },
   ],
 }
