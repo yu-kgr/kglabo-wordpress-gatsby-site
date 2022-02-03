@@ -110,7 +110,7 @@ const BlogIndex = ({
   data,
   pageContext: { nextPagePath, previousPagePath },
 }) => {
-  const posts = data.allWpPost.nodes
+  const posts = data.allWpPost.nodes;
 
   if (!posts.length) {
     return (
@@ -206,7 +206,6 @@ export const pageQuery = graphql`
                 name
             }
         }
-          
         featuredImage {
           node {
             altText
