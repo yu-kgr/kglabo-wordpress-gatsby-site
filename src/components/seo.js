@@ -9,7 +9,6 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
-import { useLocation } from "@reach/router";
 
 const Seo = ({ description, lang, meta, title }) => {
   const { site, file } = useStaticQuery(
@@ -19,6 +18,7 @@ const Seo = ({ description, lang, meta, title }) => {
           siteMetadata {
             title
             description
+            siteUrl
             social {
               twitter
             }
@@ -38,11 +38,9 @@ const Seo = ({ description, lang, meta, title }) => {
   const metaDescription = description || site.siteMetadata.description
   const defaultTitle = site.siteMetadata.title
 
-  const location = useLocation();
-  const siteUrl = location.origin;
+  const siteUrl = site.siteMetadata.siteUrl;
   const ogp_image = file.childImageSharp.gatsbyImageData.images.fallback.src;
   const defaultImage = `${siteUrl}${ogp_image}`;
-
 
   return (
     <Helmet
