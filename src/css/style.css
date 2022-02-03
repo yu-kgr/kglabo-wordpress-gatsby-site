@@ -345,6 +345,30 @@ a {
   text-decoration: underline;
 }
 
+.blog-post section img {
+  max-width: 100%;
+  display: block;
+  margin : 0 auto;
+}
+
+.blog-post section {
+  word-wrap: break-word;
+}
+
+.blog-post section pre {
+  white-space: pre-wrap;
+}
+
+.blog-post section pre code {
+  font-weight: normal;
+  background: none;
+}
+
+.blog-post section code {
+  font-weight: bold;
+  background:linear-gradient(transparent 60%, #c5f5af 0%) ;
+}
+
 .gatsby-highlight {
   margin-bottom: var(--spacing-8);
 }

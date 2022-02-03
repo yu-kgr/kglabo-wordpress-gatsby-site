@@ -1,4 +1,6 @@
-import React from "react"
+import React, { useEffect } from "react"
+import Prism from "prismjs";
+import "prismjs/themes/prism-twilight.css";
 import { Link, graphql } from "gatsby"
 import Image from "gatsby-image"
 import parse from "html-react-parser"
@@ -16,6 +18,11 @@ import Footer from "../components/footer"
 import Header from "../components/header"
 
 const BlogPostTemplate = ({ data: { previous, next, post } }) => {
+
+  useEffect(() => {
+    Prism.highlightAll();
+  });
+
   const featuredImage = {
     fluid: post.featuredImage?.node?.localFile?.childImageSharp?.fluid,
     alt: post.featuredImage?.node?.alt || ``,
