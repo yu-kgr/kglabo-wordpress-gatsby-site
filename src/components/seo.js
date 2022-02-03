@@ -10,10 +10,8 @@ import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-import ogp_image from "../images/default_image.png";
-
 const Seo = ({ description, lang, meta, title }) => {
-  const { site } = useStaticQuery(
+  const { site, file } = useStaticQuery(
     graphql`
       query {
         site {
@@ -26,14 +24,20 @@ const Seo = ({ description, lang, meta, title }) => {
             }
           }
         }
+        file(relativePath: {eq: "default_image.png"}) {
+          id
+          childImageSharp {
+            gatsbyImageData
+          }
+        }
       }
     `
   )
+  
 
   const metaDescription = description || site.siteMetadata.description
   const defaultTitle = site.siteMetadata.title
-  const siteUrl = site.siteMetadata.siteUrl;
-  const defaultImage = `${siteUrl}${ogp_image}`;
+  const ogp_image = file.childImageSharp.gatsbyImageData.images.fallback.src;
 
   return (
     <Helmet
@@ -46,7 +50,7 @@ const Seo = ({ description, lang, meta, title }) => {
         { name: `description`, content: metaDescription },
         { property: `og:title`, content: title },
         { property: `og:description`, content: metaDescription },
-        { property: "og:image", content: defaultImage },
+        { property: "og:image", content: ogp_image },
         { property: `og:type`, content: `website` },
         { name: `twitter:card`, content: `summary_large_image` },
         { name: `twitter:creator`, content: site.siteMetadata.social.twitter },

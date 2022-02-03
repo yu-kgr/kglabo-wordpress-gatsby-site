@@ -72,7 +72,6 @@ module.exports = {
      */
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-
     {
       // See https://www.gatsbyjs.com/plugins/gatsby-plugin-manifest/?=gatsby-plugin-manifest
       resolve: `gatsby-plugin-manifest`,
