@@ -9,6 +9,18 @@ require("dotenv").config()
  */
 
 module.exports = {
+  siteMetadata: {
+    title: '< カグラボ />',
+    author: {
+      name: 'yu-kgr',
+      summary: '学んだ事や趣味のことなどについて、何かとごちゃごちゃしがちな思考を整理するブログです。'
+    },
+    description: '学んだ事や趣味のことなどについて、何かとごちゃごちゃしがちな思考を整理するブログです。',
+    siteUrl: 'https://kglabo.com/',
+    social: {
+      twitter: 'yu_kgr',
+    },
+  },
   /**
    * Adding plugins to this array adds them to your Gatsby site.
    *
