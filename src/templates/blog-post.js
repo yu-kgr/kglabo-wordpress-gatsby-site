@@ -1,6 +1,8 @@
 import React, { useEffect } from "react"
 import Prism from "prismjs";
-import "prismjs/themes/prism-twilight.css";
+import 'prismjs/plugins/line-numbers/prism-line-numbers.js';
+import "prismjs/themes/prism-twilight.min.css";
+import "prismjs/plugins/line-numbers/prism-line-numbers.css"
 import { Link, graphql } from "gatsby"
 import Image from "gatsby-image"
 import parse from "html-react-parser"
@@ -12,6 +14,7 @@ import parse from "html-react-parser"
 // @todo update this once @wordpress upgrades their postcss version
 import "../css/@wordpress/block-library/build-style/style.css"
 import "../css/@wordpress/block-library/build-style/theme.css"
+
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import Footer from "../components/footer"
