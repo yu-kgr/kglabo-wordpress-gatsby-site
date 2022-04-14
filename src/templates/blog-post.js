@@ -45,7 +45,7 @@ const BlogPostTemplate = ({ data: { previous, next, post } }) => {
         </header>
         {!!post.content && (
           <section itemProp="articleBody" className="line-numbers">
-            {postsData}
+            {parse(post.content)}
           </section>
         )}
         <hr />
@@ -72,7 +72,7 @@ const BlogPostTemplate = ({ data: { previous, next, post } }) => {
           <li>
             {next && (
               <Link to={next.uri} rel="next">
-                {parse(next.title)} →
+                {parse(next.title)}
               </Link>
             )}
           </li>
