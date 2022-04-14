@@ -1,5 +1,5 @@
 import React from "react"
-import { css } from '@emotion/react'
+import { css } from "@emotion/react"
 
 const style = css`
   width: 100%;
@@ -9,14 +9,20 @@ const style = css`
   text-align: center;
   paddig-bottom: 4px;
   :before {
-    content: '';
+    content: "";
     width: 100%;
     position: absolute;
     bottom: 0;
     left: 0;
     height: 4px;
-    background: -webkit-linear-gradient( 60deg,#12d6df, #f70fff,#faea3d, #fd644f);
-    background-size:400%;
+    background: -webkit-linear-gradient(
+      60deg,
+      #12d6df,
+      #f70fff,
+      #faea3d,
+      #fd644f
+    );
+    background-size: 400%;
     animation: bgAnime 10s infinite;
     z-index: 1;
   }

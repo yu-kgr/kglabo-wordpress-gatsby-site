@@ -1,6 +1,6 @@
 import React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
-import { css } from '@emotion/react'
+import { css } from "@emotion/react"
 import svg from "/content/assets/logo-kglabo.svg"
 import parse from "html-react-parser"
 
@@ -10,16 +10,22 @@ const header = css`
   paddig-top: 4px;
   position: relative;
   :before {
-    content: '';
+    content: "";
     width: 100%;
     position: absolute;
     height: 4px;
-    background: -webkit-linear-gradient( 60deg,#12d6df, #f70fff,#faea3d, #fd644f);
-    background-size:400%;
+    background: -webkit-linear-gradient(
+      60deg,
+      #12d6df,
+      #f70fff,
+      #faea3d,
+      #fd644f
+    );
+    background-size: 400%;
     animation: bgAnime 10s infinite;
     z-index: 1;
   }
-`;
+`
 
 const inner = css`
   max-width: var(--maxWidth-wrapper);
@@ -35,15 +41,21 @@ const logo = css`
   display: block;
   width: 200px;
   :hover {
-    background: -webkit-linear-gradient( 60deg,#12d6df, #f70fff,#faea3d, #fd644f);
-    background-size:400%;
+    background: -webkit-linear-gradient(
+      60deg,
+      #12d6df,
+      #f70fff,
+      #faea3d,
+      #fd644f
+    );
+    background-size: 400%;
     mask-image: url(${svg});
     animation: bgAnime 10s infinite;
     img {
       opacity: 0;
-    }    
+    }
   }
-`;
+`
 
 const desc = css`
   font-size: var(--fontSize-0);
@@ -57,7 +69,7 @@ const desc = css`
   :hover p span {
     animation-duration: 1s;
     :after {
-      content: '💨💨💨💨';
+      content: "💨💨💨💨";
     }
   }
   :before {
@@ -82,14 +94,14 @@ const desc = css`
   }
   p {
     width: 300px;
-    overflow:hidden;
-    position:relative;
+    overflow: hidden;
+    position: relative;
     margin: 0;
     span {
       padding-left: 300px;
-      margin:0;
-      display:inline-block;
-      white-space:nowrap;
+      margin: 0;
+      display: inline-block;
+      white-space: nowrap;
       animation-name: marquee;
       animation-timing-function: linear;
       animation-duration: 10s;
@@ -97,7 +109,7 @@ const desc = css`
     }
   }
   @media (max-width: 42rem) {
-    margin: var(--spacing-1) auto ;
+    margin: var(--spacing-1) auto;
     padding: var(--spacing-1) 0;
     :before {
       top: -10px;
@@ -112,33 +124,37 @@ const desc = css`
       border-bottom: 14px solid var(--color-primary);
     }
   }
-`;
+`
 
 const Header = ({ isHomePage }) => {
   const {
     wp: {
-      generalSettings : {description},
+      generalSettings: { description },
     },
   } = useStaticQuery(graphql`
-      query HeaderQuery {
-          wp {
-              generalSettings {
-                  description
-              }
-          }
+    query HeaderQuery {
+      wp {
+        generalSettings {
+          description
+        }
       }
+    }
   `)
 
   return (
     <header css={header}>
       <div css={inner}>
-        <Link to="/" css={logo}><img src={svg} alt={`カグラボ`} /></Link>
+        <Link to="/" css={logo}>
+          <img src={svg} alt={`カグラボ`} />
+        </Link>
         <div css={desc}>
-          <p><span>&lt;!--{parse(description)}--&gt; </span></p>
+          <p>
+            <span>&lt;!--{parse(description)}--&gt; </span>
+          </p>
         </div>
       </div>
     </header>
   )
-};
+}
 
 export default Header

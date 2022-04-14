@@ -1,30 +1,20 @@
 import React, { useEffect } from "react"
-import Prism from "prismjs";
-import 'prismjs/plugins/line-numbers/prism-line-numbers.js';
-import "prismjs/themes/prism-twilight.min.css";
-import "prismjs/plugins/line-numbers/prism-line-numbers.css"
 import { Link, graphql } from "gatsby"
 import Image from "gatsby-image"
 import parse from "html-react-parser"
 
-// We're using Gutenberg so we need the block styles
-// these are copied into this project due to a conflict in the postCSS
-// version used by the Gatsby and @wordpress packages that causes build
-// failures.
-// @todo update this once @wordpress upgrades their postcss version
-import "../css/@wordpress/block-library/build-style/style.css"
-import "../css/@wordpress/block-library/build-style/theme.css"
+import Prism from "prismjs"
+import "prismjs/themes/prism-twilight.min.css"
+import "prismjs/plugins/line-numbers/prism-line-numbers.js"
+import "prismjs/plugins/line-numbers/prism-line-numbers.css"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import Footer from "../components/footer"
-import Header from "../components/header"
 
 const BlogPostTemplate = ({ data: { previous, next, post } }) => {
-
   useEffect(() => {
-    Prism.highlightAll();
-  });
+    Prism.highlightAll()
+  })
 
   const featuredImage = {
     fluid: post.featuredImage?.node?.localFile?.childImageSharp?.fluid,
@@ -34,7 +24,6 @@ const BlogPostTemplate = ({ data: { previous, next, post } }) => {
   return (
     <Layout>
       <Seo title={post.title} description={post.excerpt} />
-
       <article
         className="blog-post"
         itemScope
@@ -54,9 +43,10 @@ const BlogPostTemplate = ({ data: { previous, next, post } }) => {
             />
           )}
         </header>
-
         {!!post.content && (
-          <section itemProp="articleBody">{parse(post.content)}</section>
+          <section itemProp="articleBody" className="line-numbers">
+            {postsData}
+          </section>
         )}
         <hr />
       </article>

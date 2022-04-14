@@ -1,5 +1,5 @@
 import React from "react"
-import { css } from '@emotion/react'
+import { css } from "@emotion/react"
 
 const style = css`
   color: blue;
@@ -8,15 +8,8 @@ const style = css`
 const Navi = ({ isHomePage }) => {
   return (
     <nav css={style}>
-
       // TODO: カテゴリのナビを作る
-
-      {isHomePage ? (
-        ` aaa`
-      ) : (
-        ` bbb`
-      )}
-
+      {isHomePage ? ` aaa` : ` bbb`}
     </nav>
   )
 }
