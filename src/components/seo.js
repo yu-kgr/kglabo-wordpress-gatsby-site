@@ -24,7 +24,7 @@ const Seo = ({ description, lang, meta, title }) => {
             }
           }
         }
-        file(relativePath: {eq: "default_image.png"}) {
+        file(relativePath: { eq: "default_image.png" }) {
           id
           childImageSharp {
             gatsbyImageData
@@ -33,14 +33,13 @@ const Seo = ({ description, lang, meta, title }) => {
       }
     `
   )
-  
 
   const metaDescription = description || site.siteMetadata.description
   const defaultTitle = site.siteMetadata.title
 
-  const siteUrl = site.siteMetadata.siteUrl;
-  const ogp_image = file.childImageSharp.gatsbyImageData.images.fallback.src;
-  const defaultImage = `${siteUrl}${ogp_image}`;
+  const siteUrl = site.siteMetadata.siteUrl
+  const ogp_image = file.childImageSharp.gatsbyImageData.images.fallback.src
+  const defaultImage = `${siteUrl}${ogp_image}`
 
   return (
     <Helmet
@@ -62,14 +61,14 @@ const Seo = ({ description, lang, meta, title }) => {
       ].concat(meta)}
     />
   )
-};
+}
 
 Seo.defaultProps = {
   lang: `ja`,
   meta: [],
   description: ``,
   image: null,
-};
+}
 
 Seo.propTypes = {
   description: PropTypes.string,
@@ -77,6 +76,6 @@ Seo.propTypes = {
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string.isRequired,
   image: PropTypes.string,
-};
+}
 
-export default Seo;
+export default Seo

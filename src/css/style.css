@@ -1,5 +1,5 @@
 /* CSS Custom Properties Definitions */
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap");
 
 :root {
   --maxWidth-none: "none";
@@ -28,8 +28,9 @@
   --spacing-20: 5rem;
   --spacing-24: 6rem;
   --spacing-32: 8rem;
-  --fontFamily-sans: "Noto Sans JP", "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN",
-  "Arial", "Yu Gothic", "Meiryo", sans-serif;
+  --fontFamily-sans: "Noto Sans JP", "Helvetica Neue", "Helvetica",
+    "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo",
+    sans-serif;
   --font-body: var(--fontFamily-sans);
   --font-heading: var(--fontFamily-sans);
   --fontWeight-regular: 400;
@@ -55,25 +56,45 @@
   --color-text: #212121;
   --color-text-light: #6b778d;
   --color-heading: #17223b;
-  --color-accent: rgba(38,56,89,.4);
+  --color-accent: rgba(38, 56, 89, 0.4);
 }
 
 /* Animation */
 
-@keyframes textAnime{
-  0%, 100% {color: #12d6df;}
-  25% { color: #f70fff;}
-  50% { color: #faea3d;}
-  75% { color: #fd644f;}
+@keyframes textAnime {
+  0%,
+  100% {
+    color: #12d6df;
+  }
+  25% {
+    color: #f70fff;
+  }
+  50% {
+    color: #faea3d;
+  }
+  75% {
+    color: #fd644f;
+  }
 }
-@keyframes bgAnime{
-  0%{background-position:0 50%}
-  50%{background-position:100% 50%}
-  100%{background-position:0 50%}
+@keyframes bgAnime {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
 }
 @keyframes marquee {
-  from   { transform: translate(0%);}
-  99%,to { transform: translate(-100%);}
+  from {
+    transform: translate(0%);
+  }
+  99%,
+  to {
+    transform: translate(-100%);
+  }
 }
 
 /* HTML elements */
@@ -242,16 +263,15 @@ a {
 @media (hover: hover) {
   a:hover {
     color: inherit;
-    animation: textAnime .2s infinite;
+    animation: textAnime 0.2s infinite;
   }
 }
 @media (hover: none) {
   a:focus {
     color: inherit;
-    animation: textAnime .2s infinite;
+    animation: textAnime 0.2s infinite;
   }
 }
-
 
 /* Custom classes */
 .global-wrapper {
@@ -352,32 +372,12 @@ a {
 .blog-post section img {
   max-width: 100%;
   display: block;
-  margin : 0 auto;
-}
-
-.blog-post section pre code {
-  background: none;
-  font-weight: normal;
-  font-weight: var(--regular-bold);
-  padding: 0;
-  border-radius: none;
-}
-
-.blog-post section code {
-  background: var(--color-text);
-  color: #fff;
-  font-weight: var(--fontWeight-bold);
-  padding: var(--spacing-1);
-  border-radius: 4px;
-}
-
-.blog-post section pre[class*="language-"].line-numbers {
-  padding-left: var(--spacing-6);
+  margin: 0 auto;
 }
 
 .blog-post section strong {
-  font-weight: var( --fontWeight-bold);
-  background: linear-gradient(transparent 60%, #c5f5af 0%) ;
+  font-weight: var(--fontWeight-bold);
+  background: linear-gradient(transparent 60%, #c5f5af 0%);
 }
 /* Media queries */
 

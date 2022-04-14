@@ -1,6 +1,4 @@
 import React from "react"
-import { Link, useStaticQuery, graphql } from "gatsby"
-import parse from "html-react-parser"
 import Header from "./header"
 import Footer from "./footer"
 
@@ -21,7 +19,7 @@ const Layout = ({ isHomePage, children }) => {
         // - 広告
         // -
       */}
-      <Footer/>
+      <Footer />
     </div>
   )
 }
